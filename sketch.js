@@ -27,20 +27,21 @@ function drawBorder() {
 function gameOver() {
     var start_text="Game Over. Points = " + snake.body.length;
     textFont("Courier");
-    textSize(32);
+    textSize(40);
+    fill(255,255,0); 
     text(start_text,0.5*(width-textWidth(start_text)),0.5*(height-16))
+    noLoop();
 }
 
 function draw() {
+	if (snake.collision()) {
+		gameOver();
+		return;
+	}
 	frameRate(map(snake.body.length,3,200,10,50));
 	background(0);
 	drawBorder();
 	snake.show();
-	if (snake.collision()) {
-		noLoop();
-		gameOver();
-		return;
-	}
 	snake.move();
 	for (var i = 0; i < foods.length; i++) {
 		foods[i].show();
