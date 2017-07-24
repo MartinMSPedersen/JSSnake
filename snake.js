@@ -102,10 +102,10 @@ Snake.prototype.changeDirectionRight = function() {
 Snake.prototype.collision = function() {
 	var i;
 
-	if (this.headX < this.blockSize) return true;
-	if (this.headY < this.blockSize) return true;
-	if (this.headX > width - 2*this.blockSize) return true;
-	if (this.headY > height - 2*this.blockSize) return true;
+	if (this.headX < 0) return true;
+	if (this.headY < 0) return true;
+	if (this.headX > width - this.blockSize) return true;
+	if (this.headY > height - this.blockSize) return true;
 
 	for (i = 0; i < this.body.length-1; i++) {
 		if ((this.headX == this.body[i].xpos) && (this.headY == this.body[i].ypos)) return true;
