@@ -4,3 +4,6 @@ A live version of this code can be found at:
 
 http://snake.20dage.dk/
 
+All source under GPL version 3 or latter
+(GNU General Public License - http://www.gnu.org/)
+contact martin@linux.com for more information about this code

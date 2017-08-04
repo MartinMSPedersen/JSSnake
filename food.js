@@ -1,3 +1,11 @@
+/*
+   Date: 4th of August 2017
+   version 0.1
+   All source under GPL version 3 or latter
+   (GNU General Public License - http://www.gnu.org/)
+   contact martin@linux.com for more information about this code
+*/
+
 function Food(value) {
 	this.xpos = random(3*blockSize,width-3*blockSize);
 	this.ypos = random(3*blockSize,height-3*blockSize);
