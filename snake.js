@@ -20,7 +20,8 @@ function Snake(headX, headY, blockSize, headColour, bodyColour) {
 	var b;
 
 	for (i = 1; i <= 3 ; i++) {
-		var b = new Block(this.headX+i*this.blockSize, this.headY, this.blockSize, this.bodyColour);
+		var b = new Block(this.headX + i*this.blockSize, this.headY, 
+			          this.blockSize, this.bodyColour);
 		this.body.push(b);
 	}
 }
@@ -52,7 +53,8 @@ Snake.prototype.move = function() {
 		}
 		this.body[len-1].newPosition(this.headX,this.headY);
 	} else {
-		b = new Block(this.headX, this.headY, this.blockSize, this.bodyColour);
+		b = new Block(this.headX, this.headY, 
+			      this.blockSize, this.bodyColour);
 		this.body.push(b);
 		this.growing = this.growing - 1;
 	}
@@ -116,7 +118,8 @@ Snake.prototype.collision = function() {
 	if (this.headY > height - this.blockSize) return true;
 
 	for (i = 0; i < this.body.length-1; i++) {
-		if ((this.headX == this.body[i].xpos) && (this.headY == this.body[i].ypos)) return true;
+		if ((this.headX == this.body[i].xpos) && 
+	            (this.headY == this.body[i].ypos)) return true;
 	}
 
 	return false;
