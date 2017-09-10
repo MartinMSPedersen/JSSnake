@@ -70,4 +70,10 @@ function keyPressed() {
 	if (keyCode == RIGHT_ARROW) {
 		snake.changeDirectionRight();
 	}
+	if (keyCode == UP_ARROW) {
+		snake.changeDirectionUp();
+	}
+	if (keyCode == DOWN_ARROW) {
+		snake.changeDirectionDown();
+	}
 }

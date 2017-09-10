@@ -73,39 +73,27 @@ Snake.prototype.move = function() {
 	}
 }
 
-Snake.prototype.changeDirectionLeft = function() {
-	if (this.direction == "NORTH") {
-		this.direction = "WEST";
-		return;
-	}
-	if (this.direction == "SOUTH") {
-		this.direction = "EAST";
-		return;
-	}
-	if (this.direction == "EAST") {
+Snake.prototype.changeDirectionUp = function() {
+	if (this.direction != "SOUTH") {
 		this.direction = "NORTH";
-		return;
 	}
-	if (this.direction == "WEST") {
+}
+
+Snake.prototype.changeDirectionDown = function() {
+	if (this.direction != "NORTH") {
 		this.direction = "SOUTH";
 	}
 }
 
-Snake.prototype.changeDirectionRight = function() {
-	if (this.direction == "NORTH") {
-		this.direction = "EAST";
-		return;
-	}
-	if (this.direction == "SOUTH") {
+Snake.prototype.changeDirectionLeft = function() {
+	if (this.direction != "EAST") {
 		this.direction = "WEST";
-		return;
 	}
-	if (this.direction == "EAST") {
-		this.direction = "SOUTH";
-		return;
-	}
-	if (this.direction == "WEST") {
-		this.direction = "NORTH";
+}
+
+Snake.prototype.changeDirectionRight = function() {
+	if (this.direction != "WEST") {
+		this.direction = "EAST";
 	}
 }
 
