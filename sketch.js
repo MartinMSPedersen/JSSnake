@@ -46,7 +46,7 @@ function draw() {
 		gameOver();
 		return;
 	}
-	frameRate(map(snake.body.length,3,200,10,50));
+	frameRate(map(snake.body.length,3,120,10,25));
 	background(0);
 	drawBorder();
 	snake.show();
