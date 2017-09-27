@@ -7,12 +7,14 @@
 */
 
 function Food(value, color) {
-	this.xpos = random(3*blockSize,width-3*blockSize);
-	this.ypos = random(3*blockSize,height-3*blockSize);
+	this.xpos = Math.round(random(1,blockWidth))*blockSize;
+	this.ypos = Math.round(random(1,blockHeight))*blockSize;
 	this.value = value;
 	this.destroy = false;
 	this.noise = 15;
 	this.color = color;
+	console.log(this.xpos);
+	console.log(this.ypos);
 }
 
 Food.prototype.show = function() {
@@ -30,6 +32,6 @@ Food.prototype.collision = function(x,y) {
 }
 
 Food.prototype.newPosition = function() {
-	this.xpos = random(3*blockSize,width-3*blockSize);
-	this.ypos = random(3*blockSize,height-3*blockSize);
+	this.xpos = Math.round(random(1,blockWidth))*blockSize;
+	this.ypos = Math.round(random(1,blockHeight))*blockSize;
 }
