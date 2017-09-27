@@ -9,12 +9,18 @@
 var snake;
 var blockSize = 20;
 
+var blockWidth; 
+var blockHeight; 
+
 var foods = [];
 
 function setup() {
 	var f;
 
-	createCanvas(1200,700)
+	createCanvas(800,800);
+	blockHeight = height/blockSize-2;
+	blockWidth = width/blockSize-2;
+
 	snake = new Snake(width-10*blockSize,height/2,blockSize,200,100)
 
 	for (var i=1; i<=3; i++) {
