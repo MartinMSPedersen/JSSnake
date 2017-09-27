@@ -18,7 +18,7 @@ function setup() {
 	snake = new Snake(width-10*blockSize,height/2,blockSize,200,100)
 
 	for (var i=1; i<=3; i++) {
-		f = new Food(i*2);
+		f = new Food(i*2, color(255,0,0));
 		foods.push(f);
 	}
 		
