@@ -60,16 +60,16 @@ Snake.prototype.move = function() {
 	}
 
 	if (this.direction == "WEST") {
-		this.headX = this.headX - this.blockSize*this.speed;
+		this.headX = this.headX - this.blockSize;
 	}
 	if (this.direction == "NORTH") {
-		this.headY = this.headY - this.blockSize*this.speed;
+		this.headY = this.headY - this.blockSize;
 	}
 	if (this.direction == "SOUTH") {
-		this.headY = this.headY + this.blockSize*this.speed;
+		this.headY = this.headY + this.blockSize;
 	}
 	if (this.direction == "EAST") {
-		this.headX = this.headX + this.blockSize*this.speed;
+		this.headX = this.headX + this.blockSize;
 	}
 }
 
@@ -100,10 +100,10 @@ Snake.prototype.changeDirectionRight = function() {
 Snake.prototype.collision = function() {
 	var i;
 
-	if (this.headX < 0) return true;
-	if (this.headY < 0) return true;
-	if (this.headX > width - this.blockSize) return true;
-	if (this.headY > height - this.blockSize) return true;
+	if (this.headX < blockSize) return true;
+	if (this.headY < blockSize) return true;
+	if (this.headX >= width - this.blockSize) return true;
+	if (this.headY >= height - this.blockSize) return true;
 
 	for (i = 0; i < this.body.length-1; i++) {
 		if ((this.headX == this.body[i].xpos) && 
