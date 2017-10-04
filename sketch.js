@@ -70,6 +70,7 @@ function draw() {
 	background(0);
 	drawBorder();
 	snake.show();
+	checkMouse();
 	snake.move();
 	for (var i = 0; i < foods.length; i++) {
 		foods[i].show();
@@ -95,5 +96,28 @@ function keyPressed() {
 	}
 	if (keyCode == DOWN_ARROW) {
 		snake.changeDirectionDown();
+	}
+}
+
+function checkMouse() {
+	if (snake.direction != "NORTH") {
+		if (mouseX >= snake.headX-blockSize && mouseX <= snake.headX+2*blockSize && mouseY >= snake.headY+2*blockSize) {
+			snake.direction = "SOUTH";
+		}
+	}
+	if (snake.direction != "SOUTH") {
+		if (mouseX >= snake.headX-blockSize && mouseX <= snake.headX+2*blockSize && mouseY <= snake.headY-2*blockSize) {
+			snake.direction = "NORTH";
+		}
+	}
+	if (snake.direction != "WEST") {
+		if (mouseY >= snake.headY-blockSize && mouseY <= snake.headY+2*blockSize && mouseX >= snake.headX+2*blockSize) {
+			snake.direction = "EAST";
+		}
+	}
+	if (snake.direction != "EAST") {
+		if (mouseY >= snake.headY-blockSize && mouseY <= snake.headY+2*blockSize && mouseX <= snake.headX-2*blockSize) {
+			snake.direction = "WEST";
+		}
 	}
 }
