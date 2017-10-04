@@ -27,7 +27,20 @@ function setup() {
 		f = new Food(i*2, color(255,0,0));
 		foods.push(f);
 	}
-		
+}
+
+function drawMouseArea() {
+	noStroke();
+	if (snake.direction != 'NORTH' && snake.direction != 'SOUTH') {
+		fill(0,0,200);
+		rect(snake.headX-blockSize, snake.headY+3*blockSize, 3*blockSize, height-4*blockSize-snake.headY); // south
+		rect(snake.headX-blockSize, blockSize, 3*blockSize, snake.headY-3*blockSize);        // north
+	}
+	if (snake.direction != 'EAST' && snake.direction != 'WEST') {
+		fill(0,0,200);
+		rect(blockSize, snake.headY-blockSize, snake.headX-3*blockSize, 3*blockSize); // west
+		rect(snake.headX+3*blockSize, snake.headY-blockSize, width-snake.headX-4*blockSize, 3*blockSize); // east
+	}
 }
 
 function drawBorder() {
@@ -36,6 +49,7 @@ function drawBorder() {
 	rect(0,0,width,height);
 	fill(0);
 	rect(blockSize,blockSize,width-2*blockSize,height-2*blockSize);
+	drawMouseArea();
 }
 
 function gameOver() {
