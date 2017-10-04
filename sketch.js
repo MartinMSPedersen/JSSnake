@@ -13,18 +13,20 @@ var blockWidth;
 var blockHeight; 
 
 var foods = [];
+var poisons = [];
 
 function setup() {
 	var f;
+	var p;
 
-	createCanvas(800,800);
+	createCanvas(1000, 800);
 	blockHeight = height/blockSize-2;
 	blockWidth = width/blockSize-2;
 
 	snake = new Snake(width-10*blockSize,height/2,blockSize,200,100)
 
 	for (var i=1; i<=3; i++) {
-		f = new Food(i*2, color(255,0,0));
+		f = new Food(i*2, color(0,255,0));
 		foods.push(f);
 	}
 }
@@ -62,6 +64,8 @@ function gameOver() {
 }
 
 function draw() {
+	var p;
+
 	if (snake.collision()) {
 		gameOver();
 		return;
@@ -75,11 +79,22 @@ function draw() {
 	for (var i = 0; i < foods.length; i++) {
 		foods[i].show();
 	}
+	for (var i = 0; i < poisons.length; i++) {
+		poisons[i].show();
+	}
 
 	for (var i = 0; i < foods.length; i++) {
 		if (foods[i].collision(snake.headX, snake.headY)) {
 			snake.grow(foods[i].value);
 			foods[i].newPosition();
+			p = new Poison();	
+			poisons.push(p);
+		}
+	}
+	for (var i = 0; i < poisons.length; i++) {
+		if (poisons[i].collision(snake.headX, snake.headY)) {
+			gameOver();
+			return;
 		}
 	}
 }
