@@ -9,6 +9,7 @@
 function Snake(headX, headY, blockSize, headColour, bodyColour) {
 	this.headX = headX;
 	this.headY = headY;
+
 	this.blockSize = blockSize;
 	this.headColour = headColour;
 	this.bodyColour = bodyColour;
@@ -17,13 +18,9 @@ function Snake(headX, headY, blockSize, headColour, bodyColour) {
 	this.speed = 1;
 	this.growing = 0;
 
-	var b;
-
-	for (i = 1; i <= 3 ; i++) {
-		var b = new Block(this.headX + i*this.blockSize, this.headY, 
-			          this.blockSize, this.bodyColour);
-		this.body.push(b);
-	}
+	var b = new Block(this.headX + this.blockSize, this.headY, 
+			  this.blockSize, this.bodyColour);
+	this.body.push(b);
 }
 
 Snake.prototype.show = function() {

@@ -6,16 +6,15 @@
    contact martin@linux.com for more information about this code
 */
 
-function Food(value, color) {
+function Food(value) {
 	this.xpos = Math.round(random(1,blockWidth))*blockSize;
 	this.ypos = Math.round(random(1,blockHeight))*blockSize;
 	this.value = value;
 	this.noise = 15;
-	this.color = color;
 }
 
 Food.prototype.show = function() {
-	fill(this.color);
+	fill(0, 255, 0)
 	rect(this.xpos,this.ypos,blockSize,blockSize);
 }
 
