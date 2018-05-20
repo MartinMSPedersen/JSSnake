@@ -102,15 +102,19 @@ function draw() {
 function keyPressed() {
 	if (keyCode == LEFT_ARROW) {
 		snake.changeDirectionLeft();
+		return;
 	}
 	if (keyCode == RIGHT_ARROW) {
 		snake.changeDirectionRight();
+		return;
 	}
 	if (keyCode == UP_ARROW) {
 		snake.changeDirectionUp();
+		return;
 	}
 	if (keyCode == DOWN_ARROW) {
 		snake.changeDirectionDown();
+		return;
 	}
 }
 
